@@ -2,24 +2,54 @@
 #include "articulos.h"
 using namespace std;
 
-Articulo::Articulo(string _ID, string _nombre,float _precio,int _existencias){
+Articulo::Articulo(string _ID, string _nombre,float _precio,int _existencias,int _cantidad){
     ID = _ID;
     nombre = _nombre;
     precio = _precio;
     existencias = _existencias;
+    cantidad = _cantidad;
 }
 
-void Articulo::agregarArticulo(string ID, string nombre, float precio, int existencias){
-    cout<<"Articulo ["<<ID<<" - "<<nombre<<"] agregado con exito.";
+string Articulo::name(){
+    return nombre;
 }
 
-void Articulo::borrarArticulo(string ID, string nombre, float precio, int existencias){
-    cout<<"Articulo ["<<ID<<" - "<<nombre<<"] eliminado con exito.";
+string Articulo::id(){
+    return ID;
+}
+
+float Articulo::price(){
+    return precio;
+}
+
+int Articulo::existance(){
+    return existencias;
+}
+
+int Articulo::cant(){
+    return cantidad;
+}
+
+void Articulo::addcant(){
+    cantidad++;
+}
+
+void Articulo::agregarArticulo(){
+    cantidad++;
+    existencias--;
+    cout<<"Articulo ["<<Articulo::price()<<" - "<<Articulo::name()<<"] agregado con exito.";
+}
+
+void Articulo::borrarArticulo(){
+    cantidad--;
+    cout<<"Articulo ["<<Articulo::price()<<" - "<<Articulo::name()<<"] eliminado con exito.";
 }
 
 //articulos
-string ID, nombre; float precio; int existenciasA = 19, existenciasC = 12, existenciasG = 8;
-Articulo agua = Articulo(ID, nombre, precio, existenciasA);
-Articulo chips = Articulo(ID, nombre, precio, existenciasC);
-Articulo galletas = Articulo(ID, nombre, precio, existenciasG);
+string agua_ID="001", agua_nombre="Agua"; float agua_precio=9.99; int agua_existencias=13, agua_cantidad=0;
+string chips_ID="002", chips_nombre="Chips"; float chips_precio=9.99; int chips_existencias, chips_cantidad;
+string galletas_ID="003", galletas_nombre="Galletas"; float galletas_precio=9.99; int galletas_existencias, galletas_cantidad;
 
+Articulo agua = Articulo(agua_ID, agua_nombre, agua_precio, agua_existencias, agua_cantidad);
+Articulo chips = Articulo(chips_ID, chips_nombre, chips_precio, chips_existencias, chips_cantidad);
+Articulo galletas = Articulo(galletas_ID, galletas_nombbre, galletas_precio, galletas_existencias, galletas_cantidad);

@@ -1,6 +1,5 @@
 #include <iostream>
 #include "catalogo.h"
-#include "articulos.cpp"
 #include "carrito.cpp"
 using namespace std;
 
@@ -16,37 +15,35 @@ void Catalogo::mostrarCatalogo(){
     do{
         cout<<"\n\t\t\t--Catalogo--\n";
         cout<<"1 Agua : $9.99  -  2 Chips : $15.99  - 3 Galletas : $11.99\n";
+        cout<<"Existencias: "<<agua.existance()<<"\t   Existencias: "<<chips.existance()<<"     Existencias: "<<galletas.existance()<<endl;
         cout<<"R Regresar\n";
         cout<<"Opcion: "; cin>>opcion;
         switch (opcion){
         case '1': system("clear");
-            if(existenciasA!=0){
-                agua.agregarArticulo("001","Agua",9.99,existenciasA);
-                existenciasA--;
-                cout<<endl<<existenciasA;
+            if(agua.existance()!=0){
+                agua.agregarArticulo();
+                agua.addcant();
             }
             else{
-                cout<<"Articulo ["<<"001"<<" - "<<"Agua"<<"] esta agotado.";
+                cout<<"Articulo ["<<agua.id()<<" - "<<agua.name()<<"] esta agotado.";
             }
             break;
         case '2': system("clear");
-                if(existenciasC!=0){
-                agua.agregarArticulo("002","Chips",15.99,existenciasC);
-                existenciasC--;
-                cout<<endl<<existenciasC;
+                if(chips.existance()!=0){
+                chips.agregarArticulo();
+                chips.addcant();
             }
             else{
-                cout<<"Articulo ["<<"002"<<" - "<<"Chips"<<"] esta agotado.";             
+                cout<<"Articulo ["<<chips.id()<<" - "<<chips.name()<<"] esta agotado.";             
             }
             break;
         case '3': system("clear");
-                if(existenciasG!=0){
-                agua.agregarArticulo("003","Galletas",11.99,existenciasG);
-                existenciasG--;
-                cout<<endl<<existenciasG;
+                if(galletas.existance()!=0){
+                galletas.agregarArticulo();
+                galletas.addcant();
             }
             else{
-                cout<<"Articulo ["<<"003"<<" - "<<"Galletas"<<"] esta agotado.";
+                cout<<"Articulo ["<<galletas.id()<<" - "<<galletas.name()<<"] esta agotado.";
             }
             break;
         case 'R': system("clear");
@@ -57,4 +54,4 @@ void Catalogo::mostrarCatalogo(){
                  cout<<"Articulo Inexistente...";
         }
     }while(opcion!='r' && opcion!='R');
-}   
+}

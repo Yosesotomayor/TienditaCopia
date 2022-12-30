@@ -1,4 +1,5 @@
 #include <iostream>
+#include "articulos.cpp"
 #include "carrito.h"
 using namespace std;
 
@@ -8,7 +9,8 @@ Carrito::Carrito(char _opcion){
 
 void Carrito::mostrarCarrito(){
     system("clear");
-    
+    cout<<"\n\t  --CARRITO--\n";
+    cout<<":";
 }
 
 void Carrito::comprarCarrito(){

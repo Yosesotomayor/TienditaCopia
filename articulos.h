@@ -4,8 +4,16 @@ class Articulo{
         string nombre;
         float precio;
         int existencias;
+        int cantidad;
     public:
-        Articulo(string, string,float,int);
-        void agregarArticulo(string,string nombre,float,int);
-        void borrarArticulo(string,string nombre,float,int);
+        Articulo(string, string,float,int,int);
+        //int existencias(int);
+        void agregarArticulo();
+        void borrarArticulo();
+        string name();
+        string id();
+        float price();
+        int existance();
+        int cant();
+        void addcant();
 };  
