@@ -52,4 +52,4 @@ string galletas_ID="003", galletas_nombre="Galletas"; float galletas_precio=9.99
 
 Articulo agua = Articulo(agua_ID, agua_nombre, agua_precio, agua_existencias, agua_cantidad);
 Articulo chips = Articulo(chips_ID, chips_nombre, chips_precio, chips_existencias, chips_cantidad);
-Articulo galletas = Articulo(galletas_ID, galletas_nombbre, galletas_precio, galletas_existencias, galletas_cantidad);
+Articulo galletas = Articulo(galletas_ID, galletas_nombre, galletas_precio, galletas_existencias, galletas_cantidad);
