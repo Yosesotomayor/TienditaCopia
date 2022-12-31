@@ -47,10 +47,19 @@ float Articulo::subT(){
     return individual;
 }
 
-void Articulo::borrarArticulo(){
+void Articulo::eliminarUnArticulo(){
     cantidad--;
     existencias++;
-    cout<<"Articulo ["<<Articulo::price()<<" - "<<Articulo::name()<<"] eliminado con exito.";
+}
+
+void Articulo::borrarArticulo(){
+    while(Articulo::cant()!=0){
+        Articulo::eliminarUnArticulo();
+    }
+}
+
+void Articulo::comprado(){
+    cantidad = 0;
 }
 
 //Articulos !!

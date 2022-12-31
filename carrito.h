@@ -11,4 +11,5 @@ class Carrito{
         void menuCarrito();
         void mostrarCarrito();
         void comprarCarrito();
+        void vaciarCarrito();
 };

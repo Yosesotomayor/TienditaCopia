@@ -9,6 +9,7 @@ class Articulo{
         Articulo(string, string,float,int,int);
         void mostrarArticulo();
         void agregarArticulo();
+        void eliminarUnArticulo();
         void borrarArticulo();
         float subT();
         string name();
@@ -16,4 +17,5 @@ class Articulo{
         float price();
         int existance();
         int cant();
+        void comprado();
 };  
