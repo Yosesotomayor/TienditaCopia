@@ -7,13 +7,13 @@ class Articulo{
         int cantidad;
     public:
         Articulo(string, string,float,int,int);
-        //int existencias(int);
+        void mostrarArticulo();
         void agregarArticulo();
         void borrarArticulo();
+        float subT();
         string name();
         string id();
         float price();
         int existance();
         int cant();
-        void addcant();
 };  

@@ -1,17 +1,57 @@
 #include <iostream>
-#include "articulos.cpp"
 #include "carrito.h"
 using namespace std;
 
-Carrito::Carrito(char _opcion){
+bool cV=true;
+Carrito::Carrito(char _opcion, float _total){
     opcion = _opcion;
+    total = _total;
+}
+
+char op; float iva = 1.16; float t=0;
+
+Carrito carrito = Carrito(op,t);
+
+
+
+float Carrito::SubT(){
+    float subtotal=0; 
+    subtotal += galletas.subT();
+    subtotal += agua.subT();
+    subtotal += chips.subT();
+    return subtotal;
+}
+
+float Carrito::T(){
+    total = Carrito::SubT() * iva;
+    return total;
 }
 
 void Carrito::mostrarCarrito(){
     system("clear");
-    cout<<"\n\t  --CARRITO--\n";
-    cout<<":";
-}
+
+    cout<<"Articulos: \n";
+    
+    if(agua.cant()!=0){
+        agua.mostrarArticulo();
+            cV = false;
+    }
+    if(chips.cant()!=0){
+        chips.mostrarArticulo();
+            cV = false;
+    }
+    if(galletas.cant()!=0){
+        galletas.mostrarArticulo();
+            cV = false;
+    }
+    if(cV==true){
+        cout<<"El carrito esta vacio!";
+    }
+    else{
+        cout<<"\nSubtotal: $"<<carrito.SubT();
+        cout<<"\nTotal: $"<<carrito.T();
+    }
+}   
 
 void Carrito::comprarCarrito(){
     system("clear");

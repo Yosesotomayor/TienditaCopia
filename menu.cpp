@@ -11,7 +11,7 @@ void Menu::mostrarMenu(){
     char opcion1; string ID;
     char nombre[31];
     Catalogo catalogo = Catalogo(opcion1, nombre, ID);
-    Carrito carrito = Carrito(opcion1);
+    Carrito carrito = Carrito(opcion1,0);
     system("clear");
     do{
         cout<<"\n\t---Tiendita---\n";

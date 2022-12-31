@@ -22,7 +22,6 @@ void Catalogo::mostrarCatalogo(){
         case '1': system("clear");
             if(agua.existance()!=0){
                 agua.agregarArticulo();
-                agua.addcant();
             }
             else{
                 cout<<"Articulo ["<<agua.id()<<" - "<<agua.name()<<"] esta agotado.";
@@ -31,7 +30,6 @@ void Catalogo::mostrarCatalogo(){
         case '2': system("clear");
                 if(chips.existance()!=0){
                 chips.agregarArticulo();
-                chips.addcant();
             }
             else{
                 cout<<"Articulo ["<<chips.id()<<" - "<<chips.name()<<"] esta agotado.";             
@@ -40,7 +38,6 @@ void Catalogo::mostrarCatalogo(){
         case '3': system("clear");
                 if(galletas.existance()!=0){
                 galletas.agregarArticulo();
-                galletas.addcant();
             }
             else{
                 cout<<"Articulo ["<<galletas.id()<<" - "<<galletas.name()<<"] esta agotado.";
