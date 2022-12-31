@@ -38,7 +38,7 @@ void Articulo::mostrarArticulo(){
 void Articulo::agregarArticulo(){
     cantidad++;
     existencias--;
-    cout<<"Articulo ["<<Articulo::price()<<" - "<<Articulo::name()<<"] agregado con exito.";
+    cout<<"Articulo ["<<Articulo::id()<<" - "<<Articulo::name()<<"] agregado con exito.";
 }
 
 float Articulo::subT(){
