@@ -1,5 +1,3 @@
-#include "articulos.cpp"
-
 class Carrito{
     private:
         char opcion;

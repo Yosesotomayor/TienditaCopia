@@ -1,4 +1,5 @@
 #include <iostream>
+#include "excel.cpp"
 #include "carrito.h"
 using namespace std;
 bool cV=true;
@@ -16,9 +17,9 @@ Carrito carrito = Carrito(op,t);
 
 float Carrito::SubT(){
     float subtotal=0; 
-    subtotal += galletas.subT();
-    subtotal += agua.subT();
-    subtotal += chips.subT();
+    subtotal += Data[0].subT();
+    subtotal += Data[1].subT();
+    subtotal += Data[2].subT();
     return subtotal;
 }
 
@@ -32,16 +33,16 @@ void Carrito::mostrarCarrito(){
     if(cV!=true){
         cout<<"Articulos: \n";
     }
-   if(agua.cant()!=0){
-        agua.mostrarArticulo();
+   if(Data[0].Cantidad!=0){
+        Data[0].mostrarArticulo();
             cV = false;
     }
-    if(chips.cant()!=0){
-        chips.mostrarArticulo();
+    if(Data[1].Cantidad!=0){
+        Data[1].mostrarArticulo();
             cV = false;
     }
-    if(galletas.cant()!=0){
-        galletas.mostrarArticulo();
+    if(Data[2].Cantidad!=0){
+        Data[2].mostrarArticulo();
             cV = false;
     }
     if(cV==true){
@@ -60,9 +61,9 @@ void Carrito::comprarCarrito(){
         cout<<"Esta seguro de comprar los articulos por " <<carrito.T()<<"? (y/n): "; cin>>opcion;
         switch(opcion){
             case 'y': system("clear");
-                    agua.comprado();
-                    chips.comprado();
-                    galletas.comprado();
+                    Data[0].comprado();
+                    Data[1].comprado();
+                    Data[2].comprado();
                     cV = true;
                     cout<<"Gracias!";
                 break;
@@ -79,9 +80,9 @@ void Carrito::comprarCarrito(){
 }
 
 void Carrito::vaciarCarrito(){
-    agua.borrarArticulo();
-    chips.borrarArticulo();
-    galletas.borrarArticulo();
+    Data[0].borrarArticulo();
+    Data[1].borrarArticulo();
+    Data[2].borrarArticulo();
     cout<<"El carrito se ha vaciado con exito!";
 }
 
@@ -90,7 +91,7 @@ void Carrito::menuCarrito(){
     char op;
     string id_; bool band = false, band1 = false;
     string arr[3] = {"001","002","003"};
-    if(agua.cant() != 0 || chips.cant() != 0 || galletas.cant() != 0){
+    if(Data[0].Cantidad != 0 || Data[1].Cantidad != 0 || Data[2].Cantidad != 0){
         cV=false;
     }
     do{
@@ -110,7 +111,7 @@ void Carrito::menuCarrito(){
                 system("clear");
                 if(cV == false){
                     do{
-                        cout<<"|"<<agua.id()<<"->"<<agua.name()<<"|  |"<<chips.id()<<"->"<<chips.name()<<"|  |"<<galletas.id()<<"->"<<galletas.name()<<"|"<<endl;
+                        cout<<"|"<<Data[0].ID<<"->"<<Data[0].Nombre<<"|  |"<<Data[1].ID<<"->"<<Data[1].Nombre<<"|  |"<<Data[2].ID<<"->"<<Data[2].Nombre<<"|"<<endl;
                         cout<<"Digite ID: "; cin>>id_;
                         system("clear");
                         for (int i=0;i<3;i++) {
@@ -120,27 +121,27 @@ void Carrito::menuCarrito(){
                             }
                         }
                         if(id_=="001"){
-                            if(agua.cant()!=0){
-                                agua.eliminarUnArticulo();
-                                cout<<"Articulo ["<<agua.price()<<" - "<<agua.name()<<"] eliminado con exito.";
+                            if(Data[0].Cantidad!=0){
+                                Data[0].eliminarUnArticulo();
+                                cout<<"Articulo ["<<Data[0].Precio<<" - "<<Data[0].Nombre<<"] eliminado con exito.";
                             }
                             else{
                                 cout<<"Articulo no esta en el carrito!\n";
                             }
                         }
                         else if(id_=="002"){
-                            if(chips.cant()!=0){
-                                chips.eliminarUnArticulo();
-                                cout<<"Articulo ["<<chips.price()<<" - "<<chips.name()<<"] eliminado con exito.";
+                            if(Data[1].Cantidad!=0){
+                                Data[1].eliminarUnArticulo();
+                                cout<<"Articulo ["<<Data[1].Precio<<" - "<<Data[1].Nombre<<"] eliminado con exito.";
                             }
                             else{
                                 cout<<"Articulo no esta en el carrito!\n";
                             }
                         }
                         else if(id_=="003"){
-                            if(galletas.cant()!=0){
-                                galletas.eliminarUnArticulo();
-                                cout<<"Articulo ["<<galletas.price()<<" - "<<galletas.name()<<"] eliminado con exito.";
+                            if(Data[2].Cantidad!=0){
+                                Data[2].eliminarUnArticulo();
+                                cout<<"Articulo ["<<Data[2].Precio<<" - "<<Data[2].Nombre<<"] eliminado con exito.";
                             }
                             else{
                                 cout<<"Articulo no esta en el carrito!\n";
@@ -154,7 +155,7 @@ void Carrito::menuCarrito(){
                 else{
                     cout<<"El carrito esta vacio!";
                 }
-                if(agua.cant()==0 && chips.cant()==0 && galletas.cant()==0){
+                if(Data[0].Cantidad==0 && Data[1].Cantidad==0 && Data[2].Cantidad==0){
                     cV = true;
                 }
                 break;

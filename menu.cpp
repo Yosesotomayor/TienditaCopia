@@ -13,6 +13,7 @@ void Menu::mostrarMenu(){
     Catalogo catalogo = Catalogo(opcion1, nombre, ID);
     Carrito carrito = Carrito(opcion1,0);
     system("clear");
+   Excel();
     do{
         cout<<"\n\t---Tiendita---\n";
         cout<<"1. Catalogo\n";
